@@ -3,139 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond the Shadows | Official</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <title>Beyond the Shadows | The Movement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
             --sage: #7d8e7b;
             --beige: #f4f1ea;
-            --charcoal: #3a3a3a;
+            --charcoal: #2c2c2c;
+            --gold: #b5935b;
             --white: #ffffff;
         }
 
-        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--beige); color: var(--charcoal); }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--beige); color: var(--charcoal); line-height: 1.6; }
 
-        /* Header */
+        /* Navigation */
         header { 
-            background: var(--white); padding: 10px 5%; display: flex; justify-content: space-between; 
-            align-items: center; border-bottom: 1px solid #eee;
+            background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; 
+            align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
         }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--sage); font-weight: bold; text-decoration: none; }
-        .nav-links a { text-decoration: none; color: #888; margin-left: 15px; font-size: 0.75rem; letter-spacing: 1px; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--sage); font-weight: bold; text-decoration: none; }
+        nav a { text-decoration: none; color: var(--charcoal); margin-left: 20px; font-size: 0.85rem; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--sage); }
 
-        /* Banner (Top Image) */
-        .top-banner {
-            height: 350px;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1887&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--white);
+        /* Hero Section */
+        .hero { 
+            height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center; padding: 0 10%; 
+            background: linear-gradient(rgba(244, 241, 234, 0.8), rgba(244, 241, 234, 0.8)), 
+            url('https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=2000&auto=format&fit=crop'); 
+            background-size: cover; background-attachment: fixed;
         }
-        .top-banner h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; }
-        .top-banner-btns { margin-top: 20px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4rem); margin: 0; }
+        .hero p { font-style: italic; font-size: 1.1rem; margin: 20px 0 30px; max-width: 600px; }
 
-        /* Content Grid (Reclaim Your Narrative) */
-        .main-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; padding: 60px 10%; background: #fbfaf8; }
-        
-        .side-text h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; line-height: 1.1; margin: 15px 0; }
-        .side-text p { font-size: 0.85rem; color: #666; line-height: 1.6; }
-
-        .product-images { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .product-item { text-align: center; }
-        .product-item img { width: 100%; height: 250px; object-fit: cover; border-radius: 2px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .product-item p { font-size: 0.7rem; font-weight: bold; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* Workshop Card (The Sunday Reveal) */
-        .workshop-section { background: #dce1d9; padding: 80px 10%; }
-        .workshop-card { 
-            background: var(--white); display: flex; max-width: 900px; margin: 0 auto; 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05); border-radius: 4px; overflow: hidden;
-        }
-        .w-img { flex: 1; background: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop') center/cover; min-height: 350px; }
-        .w-text { flex: 1.2; padding: 50px; }
-        .w-text h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 0; }
-        
-        /* Buttons */
+        /* Global Buttons */
         .btn { 
-            padding: 10px 22px; font-size: 0.75rem; font-weight: 600; text-decoration: none; 
-            border-radius: 4px; display: inline-block; transition: 0.3s; border: none; cursor: pointer;
+            display: inline-block; padding: 14px 35px; background: var(--sage); color: white; 
+            text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 0.85rem;
+            transition: 0.3s; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(125,142,123,0.3);
         }
-        .btn-sage { background: var(--sage); color: white; }
-        .btn-charcoal { background: var(--charcoal); color: white; }
-        .btn-order { background: var(--sage); color: white; border-radius: 20px; }
+        .btn:hover { background: var(--gold); transform: translateY(-3px); }
+        .btn-dark { background: var(--charcoal); }
 
-        footer { text-align: center; padding: 40px; background: var(--white); font-size: 0.7rem; color: #bbb; letter-spacing: 1px; }
+        /* Grid Sections */
+        .container { padding: 80px 10%; }
+        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 50px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        
+        .card { background: white; padding: 40px; border-radius: 15px; text-align: center; transition: 0.3s; box-shadow: 0 5px 20px rgba(0,0,0,0.02); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
+        .price { display: block; font-size: 1.5rem; font-weight: bold; color: var(--sage); margin: 15px 0; }
+
+        /* Special Workshop Section */
+        #workshops { background: #dce1d9; border-radius: 20px; margin: 0 10% 80px; display: flex; align-items: center; overflow: hidden; }
+        .w-image { flex: 1; min-height: 400px; background: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop') center/cover; }
+        .w-text { flex: 1; padding: 60px; }
+
+        /* Footer */
+        footer { background: var(--charcoal); color: white; padding: 60px 10%; text-align: center; }
+        .social-icons { margin: 25px 0; }
+        .social-icons a { color: white; font-size: 1.5rem; margin: 0 15px; transition: 0.3s; }
+        .social-icons a:hover { color: var(--gold); }
+
+        /* Subscription Form */
+        .sub-form { display: flex; gap: 10px; margin-top: 20px; }
+        .sub-form input { flex: 1; padding: 12px 20px; border-radius: 50px; border: 1px solid #ddd; outline: none; }
     </style>
 </head>
 <body>
 
     <header>
         <a href="#" class="logo">Beyond the Shadows</a>
-        <div class="nav-links">
-            <a href="#">Service</a>
-            <a href="#">Membership</a>
-            <a href="#" class="btn btn-order" style="padding: 8px 18px; color: white;">Order Now</a>
-        </div>
+        <nav>
+            <a href="#book">The Book</a>
+            <a href="#store">Merchandise</a>
+            <a href="#workshops">Workshops</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="#book" class="btn" style="padding: 10px 25px;">Order Now</a>
     </header>
 
-    <div class="top-banner">
+    <section class="hero">
         <h1>Beyond the Shadows</h1>
-        <p style="font-size: 0.8rem; letter-spacing: 2px;">ALWAYS WRITE YOUR OWN NARRATIVE</p>
-        <div class="top-banner-btns">
-            <a href="#" class="btn btn-sage" style="margin-right: 10px;">Order Now</a>
-            <a href="#" class="btn btn-charcoal">Join the Sanctuary</a>
+        <p>"You were not created to be a masterpiece on someone else's wall."</p>
+        <div style="display: flex; gap: 15px;">
+            <a href="#book" class="btn">Get the Manifesto</a>
+            <a href="#workshops" class="btn btn-dark">Join the Sanctuary</a>
+        </div>
+    </section>
+
+    <div class="container" id="book">
+        <h2 class="section-title">Reclaim Your Narrative</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800" alt="E-book">
+                <h3>Digital Edition</h3>
+                <span class="price">$14.99</span>
+                <p>Instant access to the Manifesto. Start your journey today.</p>
+                <button onclick="buyEbook()" class="btn">Instant Access</button>
+            </div>
+            <div class="card" style="border: 2px solid var(--sage);">
+                <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800" alt="Hardcover">
+                <h3>Signed Edition</h3>
+                <span class="price">$55.00</span>
+                <p>Hand-signed by the author with a personalized note.</p>
+                <button onclick="buySigned()" class="btn">Reserve Copy</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800" alt="Hardcover">
+                <h3>Hardcover</h3>
+                <span class="price">$29.99</span>
+                <p>A beautiful physical addition to your library.</p>
+                <button onclick="buyAmazon()" class="btn">Amazon Store</button>
+            </div>
         </div>
     </div>
 
-    <section class="main-grid">
-        <div class="side-text">
-            <p style="color: var(--sage); font-weight: bold; font-size: 0.7rem; margin: 0;">A Manifesto for the Unfinished Woman</p>
-            <h2>Reclaim Your Narrative.</h2>
-            <p>The pen is in your hand. Start your journey with the manifesto.</p>
-            <div style="margin-top: 25px;">
-                <a href="#" class="btn btn-sage" style="margin-right: 8px;">Get Now</a>
-                <a href="#" class="btn btn-charcoal">Join the Tribe</a>
+    <div class="container" id="store" style="background: white;">
+        <h2 class="section-title">Official Collection</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800" alt="Hoodie">
+                <h3>Shadow Hoodie</h3>
+                <span class="price">$45.00</span>
+                <button class="btn btn-dark">Add to Cart</button>
             </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1531234799389-dcb7651eb0a2?auto=format&fit=crop&w=800" alt="Journal">
+                <h3>The Shadow Journal</h3>
+                <span class="price">$25.00</span>
+                <button class="btn btn-dark">Add to Cart</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1517256673644-36ad11246d21?auto=format&fit=crop&w=800" alt="Mug">
+                <h3>Empire Builder Mug</h3>
+                <span class="price">$18.00</span>
+                <button class="btn btn-dark">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="workshops">
+        <div class="w-image"></div>
+        <div class="w-text">
+            <h2>The Sunday Reveal</h2>
+            <p>Exclusive weekly letters on leadership, healing, and unlearning. Join the sanctuary of silent warriors.</p>
+            <form class="sub-form">
+                <input type="email" placeholder="Your best email address" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="logo" style="color: white; font-size: 2rem;">Beyond the Shadows</div>
+        <p>Reclaim the lead in your own life.</p>
+        
+        <div class="social-icons">
+            <a href="https://tiktok.com/@yourusername" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://instagram.com/@yourusername" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/@yourusername" target="_blank"><i class="fab fa-x-twitter"></i></a>
         </div>
         
-        <div class="product-images">
-            <div class="product-item">
-                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1887&auto=format&fit=crop" alt="Hoodie">
-                <p>Shadow Hoodie</p>
-            </div>
-            <div class="product-item">
-                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1887&auto=format&fit=crop" alt="Journal">
-                <p>The Shadow Mug</p>
-            </div>
-            <div class="product-item">
-                <img src="https://images.unsplash.com/photo-1517256673644-36ad11246d21?q=80&w=1887&auto=format&fit=crop" alt="Mug">
-                <p>The Shadow Journal</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="workshop-section">
-        <h2 style="text-align: center; font-family: 'Playfair Display'; margin-bottom: 40px;">Workshops & Speaking</h2>
-        <div class="workshop-card">
-            <div class="w-img"></div>
-            <div class="w-text">
-                <h3>The Sunday Reveal</h3>
-                <p style="font-size: 0.8rem; color: #888;">Exclusive weekly letters on leadership, healing, and unlearning. No spam, just power.</p>
-                <input type="email" placeholder="Enter your email" style="width: 100%; padding: 12px; margin: 20px 0; border: 1px solid #eee; border-radius: 2px;">
-                <div style="display: flex; gap: 10px;">
-                    <button class="btn btn-charcoal" style="width: 100%;">Join the Sanctuary</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2026 BEYOND THE SHADOWS. THE PEN IS IN YOUR HAND.</p>
+        <p style="font-size: 0.8rem; opacity: 0.6;">
+            Contact: beyondtheshadows.official@gmail.com <br>
+            &copy; 2026 Beyond the Shadows. All Rights Reserved.
+        </p>
     </footer>
+
+    <script>
+        function buyAmazon() {
+            window.open("https://www.amazon.com", "_blank");
+        }
+        function buyEbook() {
+            // استبدلي هذا الرابط برابط Gumroad الخاص بك لاحقاً
+            alert("Redirecting to secure digital checkout...");
+            window.open("https://gumroad.com", "_blank");
+        }
+        function buySigned() {
+            window.location.href = "mailto:beyondtheshadows.official@gmail.com?subject=Signed Edition Request";
+        }
+    </script>
 
 </body>
 </html>
