@@ -4,55 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beyond the Shadows | Official Movement</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --sage: #7d8e7b; --beige: #f4f1ea; --charcoal: #3a3a3a; --gold: #b5935b; }
+        :root {
+            --sage: #7d8e7b;
+            --beige: #f4f1ea;
+            --charcoal: #2c2c2c;
+            --gold: #b5935b;
+            --white: #ffffff;
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--beige); color: var(--charcoal); line-height: 1.6; }
-        header { background: white; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--sage); font-weight: bold; text-decoration: none; }
-        .hero { padding: 100px 10%; text-align: center; background: linear-gradient(rgba(244, 241, 234, 0.8), rgba(244, 241, 234, 0.8)), url('https://images.unsplash.com/photo-1499209974431-9dac3adaf471?q=80&w=2070&auto=format&fit=crop'); background-size: cover; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; color: var(--charcoal); }
-        .btn { display: inline-block; margin-top: 25px; padding: 15px 35px; background: var(--sage); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; box-shadow: 0 4px 15px rgba(125,142,123,0.3); }
+        
+        /* Header */
+        header { 
+            background: white; padding: 15px 5%; display: flex; justify-content: space-between; 
+            align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sage); font-weight: bold; text-decoration: none; }
+        nav a { text-decoration: none; color: var(--charcoal); margin-left: 20px; font-size: 0.9rem; font-weight: 500; }
+
+        /* Hero */
+        .hero { 
+            padding: 120px 10%; text-align: center; 
+            background: linear-gradient(rgba(244, 241, 234, 0.8), rgba(244, 241, 234, 0.8)), 
+            url('https://images.unsplash.com/photo-1499209974431-9dac3adaf471?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover; 
+        }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; color: var(--charcoal); }
+        .hero p { font-size: 1.1rem; max-width: 600px; margin: 20px auto; font-style: italic; }
+
+        /* Buttons */
+        .btn { 
+            display: inline-block; padding: 15px 40px; background: var(--sage); color: white; 
+            text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; 
+            box-shadow: 0 4px 15px rgba(125,142,123,0.3); border: none; cursor: pointer;
+        }
         .btn:hover { background: var(--gold); transform: translateY(-2px); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 80px 10%; }
-        .card { background: white; padding: 40px; border-radius: 15px; text-align: center; transition: 0.3s; }
+
+        /* Sections */
+        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 80px 0 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 10% 80px; }
+        .card { background: white; padding: 40px; border-radius: 15px; text-align: center; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
         .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .price-tag { font-size: 1.5rem; font-weight: bold; color: var(--sage); display: block; margin: 15px 0; }
+        
+        .price-tag { font-size: 1.8rem; font-weight: bold; color: var(--sage); display: block; margin: 15px 0; }
+        
+        /* Store & Workshops */
+        .item-img { font-size: 3rem; margin-bottom: 15px; display: block; }
+        .workshop-box { background: var(--white); padding: 60px 10%; text-align: center; margin: 40px 10%; border-radius: 15px; }
+
+        /* Newsletter */
+        .newsletter { background: var(--sage); color: white; padding: 80px 10%; text-align: center; }
+        .newsletter input { padding: 15px; width: 300px; border-radius: 50px; border: none; margin-right: 10px; }
+
         footer { background: var(--charcoal); color: white; padding: 50px; text-align: center; font-size: 0.9rem; }
     </style>
 </head>
 <body>
+
     <header>
         <a href="#" class="logo">Beyond the Shadows</a>
-        <a href="#buy" class="btn" style="margin:0; padding: 10px 25px;">Order Now</a>
+        <nav>
+            <a href="#buy">Book</a>
+            <a href="#store">Store</a>
+            <a href="#workshops">Workshops</a>
+        </nav>
     </header>
+
     <section class="hero">
         <h1>Stop Being a Masterpiece on Someone Else’s Wall.</h1>
         <p>A manifesto for the woman reclaiming her lead role.</p>
         <a href="#buy" class="btn">Get the Manifesto</a>
     </section>
-    <section class="grid" id="buy">
+
+    <h2 class="section-title" id="buy">The Manifesto</h2>
+    <section class="grid">
         <div class="card">
             <h3>Digital Edition</h3>
             <span class="price-tag">$14.99</span>
             <p>Immediate access to the journey.</p>
-            <a href="#" class="btn" style="width:80%">Buy E-Book</a>
+            <button onclick="buyEbook()" class="btn">Buy E-Book</button>
         </div>
         <div class="card" style="border: 2px solid var(--sage);">
             <h3>Hardcover</h3>
             <span class="price-tag">$29.99</span>
             <p>The premium physical experience.</p>
-            <a href="#" class="btn" style="width:80%">Amazon Store</a>
+            <button onclick="buyAmazon()" class="btn">Amazon Store</button>
         </div>
         <div class="card">
             <h3>Signed Copy</h3>
             <span class="price-tag">$55.00</span>
             <p>Hand-signed with a personal note.</p>
-            <a href="#" class="btn" style="width:80%">Reserve Now</a>
+            <button onclick="buySigned()" class="btn">Reserve Now</button>
         </div>
     </section>
+
+    <h2 class="section-title" id="store">Official Store</h2>
+    <section class="grid">
+        <div class="card">
+            <span class="item-img">👕</span>
+            <h3>Shadow Hoodie</h3>
+            <span class="price-tag">$45.00</span>
+            <button class="btn" style="padding: 10px 25px;">Add to Cart</button>
+        </div>
+        <div class="card">
+            <span class="item-img">📓</span>
+            <h3>The Shadow Journal</h3>
+            <span class="price-tag">$25.00</span>
+            <button class="btn" style="padding: 10px 25px;">Add to Cart</button>
+        </div>
+        <div class="card">
+            <span class="item-img">☕</span>
+            <h3>Empire Builder Mug</h3>
+            <span class="price-tag">$18.00</span>
+            <button class="btn" style="padding: 10px 25px;">Add to Cart</button>
+        </div>
+    </section>
+
+    <section class="workshop-box" id="workshops">
+        <h2>Workshops & Speaking</h2>
+        <p>Book a "Signature Reveal" session or join our monthly Shadow Work intensive.</p>
+        <a href="mailto:beyondtheshadows.official@gmail.com" class="btn" style="background: var(--charcoal);">Inquire for Booking</a>
+    </section>
+
+    <section class="newsletter">
+        <h2>Join 'The Sunday Reveal'</h2>
+        <p>Weekly letters on leadership, healing, and unlearning. No spam, just power.</p>
+        <form action="#" style="margin-top: 30px;">
+            <input type="email" placeholder="Your best email">
+            <button type="submit" class="btn" style="background: var(--charcoal);">Join the Sanctuary</button>
+        </form>
+    </section>
+
     <footer>
         <p>&copy; 2026 Beyond the Shadows. The pen is in your hand.</p>
+        <div style="margin-top: 15px;">
+            <a href="#" style="color: white; margin: 0 10px;">Twitter</a>
+            <a href="#" style="color: white; margin: 0 10px;">TikTok</a>
+        </div>
     </footer>
+
+    <script>
+        function buyAmazon(){ window.open("https://www.amazon.com", "_blank"); }
+        function buyEbook(){ alert("Redirecting to secure payment..."); }
+        function buySigned(){ window.location.href = "mailto:beyondtheshadows.official@gmail.com?subject=Signed Copy"; }
+    </script>
 </body>
 </html>
