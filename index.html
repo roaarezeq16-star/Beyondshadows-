@@ -3,32 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond the Shadows | Official Movement</title>
+    <title>Beyond the Shadows | Official</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {
             --sage: #7d8e7b;
             --beige: #f4f1ea;
-            --charcoal: #2c2c2c;
+            --charcoal: #3a3a3a;
             --white: #ffffff;
-            --gold: #b5935b;
         }
 
-        * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--beige); color: var(--charcoal); overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--beige); color: var(--charcoal); }
 
         /* Header */
         header { 
-            background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; 
-            align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.03); 
+            background: var(--white); padding: 10px 5%; display: flex; justify-content: space-between; 
+            align-items: center; border-bottom: 1px solid #eee;
         }
         .logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--sage); font-weight: bold; text-decoration: none; }
-        nav a { text-decoration: none; color: var(--charcoal); margin-left: 20px; font-size: 0.8rem; letter-spacing: 1px; }
+        .nav-links a { text-decoration: none; color: #888; margin-left: 15px; font-size: 0.75rem; letter-spacing: 1px; }
 
-        /* Banner Hero */
-        .banner {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1887&auto=format&fit=crop');
+        /* Banner (Top Image) */
+        .top-banner {
+            height: 350px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1887&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -36,106 +34,107 @@
             justify-content: center;
             align-items: center;
             color: var(--white);
-            text-align: center;
         }
-        .banner h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin: 0; text-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        .banner-btns { margin-top: 20px; display: flex; gap: 15px; }
+        .top-banner h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; }
+        .top-banner-btns { margin-top: 20px; }
 
-        /* Split Section Design */
-        .content-split { display: flex; padding: 80px 10%; align-items: center; gap: 50px; background: #fbfaf8; }
-        .text-side { flex: 1; }
-        .text-side h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px; line-height: 1.1; }
-        .image-side { flex: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        /* Content Grid (Reclaim Your Narrative) */
+        .main-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; padding: 60px 10%; background: #fbfaf8; }
+        
+        .side-text h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; line-height: 1.1; margin: 15px 0; }
+        .side-text p { font-size: 0.85rem; color: #666; line-height: 1.6; }
 
-        /* Product Cards */
-        .product-card { text-align: center; }
-        .product-card img { width: 100%; border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; }
-        .product-card:hover img { transform: translateY(-5px); }
-        .product-card p { font-size: 0.8rem; margin-top: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .product-images { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .product-item { text-align: center; }
+        .product-item img { width: 100%; height: 250px; object-fit: cover; border-radius: 2px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .product-item p { font-size: 0.7rem; font-weight: bold; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Workshops Section */
-        .workshops { background: #dce1d9; padding: 100px 10%; }
-        .workshop-container { 
-            background: var(--white); display: flex; border-radius: 8px; overflow: hidden; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.05); max-width: 1000px; margin: 0 auto;
+        /* Workshop Card (The Sunday Reveal) */
+        .workshop-section { background: #dce1d9; padding: 80px 10%; }
+        .workshop-card { 
+            background: var(--white); display: flex; max-width: 900px; margin: 0 auto; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05); border-radius: 4px; overflow: hidden;
         }
-        .workshop-img { flex: 1; background: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop') center/cover; min-height: 400px; }
-        .workshop-info { flex: 1.2; padding: 60px; }
-        .workshop-info h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 0; }
-
+        .w-img { flex: 1; background: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop') center/cover; min-height: 350px; }
+        .w-text { flex: 1.2; padding: 50px; }
+        .w-text h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 0; }
+        
         /* Buttons */
         .btn { 
-            padding: 12px 25px; border-radius: 4px; text-decoration: none; font-size: 0.8rem; 
-            font-weight: 600; transition: 0.3s; cursor: pointer; border: none;
+            padding: 10px 22px; font-size: 0.75rem; font-weight: 600; text-decoration: none; 
+            border-radius: 4px; display: inline-block; transition: 0.3s; border: none; cursor: pointer;
         }
         .btn-sage { background: var(--sage); color: white; }
-        .btn-dark { background: var(--charcoal); color: white; }
-        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
+        .btn-charcoal { background: var(--charcoal); color: white; }
+        .btn-order { background: var(--sage); color: white; border-radius: 20px; }
 
-        footer { text-align: center; padding: 60px; background: var(--white); font-size: 0.8rem; color: #999; }
+        footer { text-align: center; padding: 40px; background: var(--white); font-size: 0.7rem; color: #bbb; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
     <header>
         <a href="#" class="logo">Beyond the Shadows</a>
-        <nav>
-            <a href="#">BOOK</a>
-            <a href="#">STORE</a>
-            <a href="#">CONTACT</a>
-        </nav>
-        <a href="#" class="btn btn-sage">Order Now</a>
+        <div class="nav-links">
+            <a href="#">Service</a>
+            <a href="#">Membership</a>
+            <a href="#" class="btn btn-order" style="padding: 8px 18px; color: white;">Order Now</a>
+        </div>
     </header>
 
-    <section class="banner">
+    <div class="top-banner">
         <h1>Beyond the Shadows</h1>
-        <div class="banner-btns">
-            <a href="#" class="btn btn-sage">Order Now</a>
-            <a href="#" class="btn btn-dark">Join the Sanctuary</a>
+        <p style="font-size: 0.8rem; letter-spacing: 2px;">ALWAYS WRITE YOUR OWN NARRATIVE</p>
+        <div class="top-banner-btns">
+            <a href="#" class="btn btn-sage" style="margin-right: 10px;">Order Now</a>
+            <a href="#" class="btn btn-charcoal">Join the Sanctuary</a>
         </div>
-    </section>
+    </div>
 
-    <section class="content-split">
-        <div class="text-side">
-            <p style="color: var(--sage); font-size: 0.7rem; font-weight: bold;">A Manifesto for the Unfinished Woman</p>
+    <section class="main-grid">
+        <div class="side-text">
+            <p style="color: var(--sage); font-weight: bold; font-size: 0.7rem; margin: 0;">A Manifesto for the Unfinished Woman</p>
             <h2>Reclaim Your Narrative.</h2>
-            <p style="color: #666; font-size: 0.9rem;">The pen is in your hand. Start your journey with the manifesto.</p>
-            <div style="margin-top: 30px;">
-                <a href="#" class="btn btn-sage" style="margin-right: 10px;">Get Now</a>
-                <a href="#" class="btn btn-dark">Join Tribe</a>
+            <p>The pen is in your hand. Start your journey with the manifesto.</p>
+            <div style="margin-top: 25px;">
+                <a href="#" class="btn btn-sage" style="margin-right: 8px;">Get Now</a>
+                <a href="#" class="btn btn-charcoal">Join the Tribe</a>
             </div>
         </div>
-        <div class="image-side">
-            <div class="product-card">
+        
+        <div class="product-images">
+            <div class="product-item">
                 <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1887&auto=format&fit=crop" alt="Hoodie">
                 <p>Shadow Hoodie</p>
             </div>
-            <div class="product-card">
+            <div class="product-item">
                 <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1887&auto=format&fit=crop" alt="Journal">
                 <p>The Shadow Mug</p>
             </div>
-            <div class="product-card">
+            <div class="product-item">
                 <img src="https://images.unsplash.com/photo-1517256673644-36ad11246d21?q=80&w=1887&auto=format&fit=crop" alt="Mug">
                 <p>The Shadow Journal</p>
             </div>
         </div>
     </section>
 
-    <section class="workshops">
-        <h2 style="text-align: center; font-family: 'Playfair Display'; margin-bottom: 50px;">Workshops & Speaking</h2>
-        <div class="workshop-container">
-            <div class="workshop-img"></div>
-            <div class="workshop-info">
+    <section class="workshop-section">
+        <h2 style="text-align: center; font-family: 'Playfair Display'; margin-bottom: 40px;">Workshops & Speaking</h2>
+        <div class="workshop-card">
+            <div class="w-img"></div>
+            <div class="w-text">
                 <h3>The Sunday Reveal</h3>
-                <p style="color: #666;">Exclusive weekly letters on leadership, healing, and unlearning. No spam, just power.</p>
-                <input type="email" placeholder="Enter Email" style="width: 100%; padding: 12px; margin: 20px 0; border: 1px solid #ddd; border-radius: 4px;">
-                <button class="btn btn-dark" style="width: 100%;">Join the Sanctuary</button>
+                <p style="font-size: 0.8rem; color: #888;">Exclusive weekly letters on leadership, healing, and unlearning. No spam, just power.</p>
+                <input type="email" placeholder="Enter your email" style="width: 100%; padding: 12px; margin: 20px 0; border: 1px solid #eee; border-radius: 2px;">
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-charcoal" style="width: 100%;">Join the Sanctuary</button>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 BEYOND THE SHADOWS. RECLAIM THE LEAD.</p>
+        <p>© 2026 BEYOND THE SHADOWS. THE PEN IS IN YOUR HAND.</p>
     </footer>
 
 </body>
